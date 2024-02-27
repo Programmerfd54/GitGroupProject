@@ -26,10 +26,11 @@ namespace GitOurProject
         {
             InitializeComponent();
             // Добавляем обработчики событий изменения текста в текстовых полях
-            log.TextChanged += TextBox_TextChanged;
-            log2.TextChanged += TextBox_TextChanged;
+          
         }
 
+         private double num1 = 0; // Первое число
+         private double num2 = 0; // Второе число
 
         private void ravno_Click(object sender, RoutedEventArgs e)
         {
@@ -47,26 +48,30 @@ namespace GitOurProject
         {
             Button button = (Button)sender;
             currentOperation = button.Content.ToString(); // Обновляем текущую операцию
+            PerformOperation(); // Выполнить операцию при нажатии на кнопку операции
         }
         private void PerformOperation()
         {
-            if (string.IsNullOrWhiteSpace(currentOperation))
+           if (string.IsNullOrWhiteSpace(currentOperation))
             {
-                MessageBox.Show("Выберите операцию!");
+                ShowError("Выберите операцию!");
                 return;
             }
-
+            
             if (string.IsNullOrWhiteSpace(log.Text) || string.IsNullOrWhiteSpace(log2.Text))
             {
-                MessageBox.Show("Введите числа!");
+                ShowError("Введите числа!");
                 return;
             }
-
-            if (string.IsNullOrWhiteSpace(log.Text) || string.IsNullOrWhiteSpace(log2.Text))
+            
+            // Парсинг чисел из текстовых полей
+            if (!double.TryParse(log.Text, out num1) || !double.TryParse(log2.Text, out num2))
             {
-                MessageBox.Show("Введите числа!");
+                ShowError("Введите корректные числа!");
                 return;
             }
+            
+            double result = 0;
 
 
             // Парсинг чисел из текстовых полей
@@ -120,6 +125,11 @@ namespace GitOurProject
         {
             PerformOperation(); // Выполняем операцию при изменении текста
         }
+          private void ShowError(string message, TextBox textBox = null)
+              {
+                  MessageBox.Show(message);
+                  textBox?.Focus();
+              }
 
         private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
