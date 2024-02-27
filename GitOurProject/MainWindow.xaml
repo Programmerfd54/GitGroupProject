@@ -44,7 +44,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="podelit" Background="#498C51" FontWeight="Medium" Content="/" FontSize="35" HorizontalAlignment="Left" Margin="49,307,0,0" VerticalAlignment="Top" Height="60" Width="328" FontFamily="Comic Sans MS" Click="Button_Click">
+        <Button x:Name="podelit" Background="#498C51" FontWeight="Medium" Content="/" FontSize="35" HorizontalAlignment="Left" Margin="49,307,0,0" VerticalAlignment="Top" Height="60" Width="328" FontFamily="Comic Sans MS">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
@@ -60,7 +60,7 @@
         </TextBox>
         <Label Content="Второе число"  FontSize="30"  FontFamily="Comic Sans MS" HorizontalAlignment="Left" Margin="403,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.74,0.43"/>
         <TextBlock x:Name="Itog" HorizontalAlignment="Left" Margin="400,487,0,0"  FontSize="30"  FontFamily="Comic Sans MS" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188"/>
-        <Button x:Name="sqrty" Background="#498C51" FontWeight="Medium" Content="√" FontSize="35" HorizontalAlignment="Left" Margin="403,307,0,0" VerticalAlignment="Top" Height="60" Width="328" FontFamily="Comic Sans MS" Click="sqrty_Click">
+        <Button x:Name="sqrty" Background="#498C51" FontWeight="Medium" Content="√" FontSize="35" HorizontalAlignment="Left" Margin="403,307,0,0" VerticalAlignment="Top" Height="60" Width="328" FontFamily="Comic Sans MS">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
