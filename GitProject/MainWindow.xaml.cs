@@ -24,5 +24,37 @@ namespace GitProject
         {
             InitializeComponent();
         }
+
+        private void PerformOperation(string operation)
+        {
+            double num1, num2;
+            if (double.TryParse(log.Text, out num1) && double.TryParse(log_Копировать.Text, out num2))
+            {
+                double result = 0;
+                switch (operation)
+                {
+                    case "+":
+                        result = num1 + num2;
+                        break;
+                    case "-":
+                        result = num1 - num2;
+                        break;
+                    case "*":
+                        result = num1 * num2;
+                        break;
+                    case "/":
+                        if (num2 != 0)
+                            result = num1 / num2;
+                        else
+                            MessageBox.Show("Деление на ноль невозможно!");
+                        break;
+                }
+                Itog.Text = result.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Введите корректные числа!");
+            }
+        }
     }
 }
