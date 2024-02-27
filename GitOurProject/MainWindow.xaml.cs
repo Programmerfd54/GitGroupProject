@@ -64,49 +64,51 @@ namespace GitOurProject
                 return;
             }
             
-            if (double.TryParse(log.Text, out double num1) && double.TryParse(log2.Text, out double num2))
-            {
+            if (!double.TryParse(log.Text, out num1) || !double.TryParse(log2.Text, out num2))
+ {
+     ShowError("Введите корректные числа!");
+     return;
+ }
 
+ double result = 0;
 
-                // Выполнение операции в соответствии с текущей выбранной операцией
-                switch (currentOperation)
-                {
-                    case "+":
-                        result = num1 + num2;
-                        break;
-                    case "-":
-                        result = num1 - num2;
-                        break;
-                    case "*":
-                        result = num1 * num2;
-                        break;
-                    case "/":
-                        if (num2 != 0)
-                            result = num1 / num2;
-                        else
-                        {
-                            MessageBox.Show("Деление на ноль невозможно!");
-                            return;
-                        }
-                        break;
-                    case "√":
-                        if (num2 >= 0)
-                            result = Math.Sqrt(num2);
-                        else
-                        {
-                            MessageBox.Show("Извлечение корня из отрицательного числа невозможно!");
-                            return;
-                        }
-                        break;
-                    default:
-                        MessageBox.Show("Выберите операцию!");
-                        return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Введите корректные числа!");
-            }
+ // Выполнение операции в соответствии с текущей выбранной операцией
+ switch (currentOperation)
+ {
+     case "+":
+         result = num1 + num2;
+         break;
+     case "-":
+         result = num1 - num2;
+         break;
+     case "*":
+         result = num1 * num2;
+         break;
+     case "/":
+         if (num2 != 0)
+             result = num1 / num2;
+         else
+         {
+             ShowError("Деление на ноль невозможно!");
+             return;
+         }
+         break;
+     case "√":
+         if (num2 >= 0)
+             result = Math.Sqrt(num2);
+         else
+         {
+             ShowError("Извлечение корня из отрицательного числа невозможно!");
+             return;
+         }
+         break;
+     default:
+         ShowError("Выберите операцию!");
+         return;
+ }
+
+ // Вывод результата
+ Itog.Text = result.ToString();
         }
 
         // Обработчик события изменения текста в текстовых полях
