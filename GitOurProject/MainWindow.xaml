@@ -16,7 +16,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Button  x:Name="ravno" Background="#498C51" FontWeight="Medium" Content="=" FontSize="36" HorizontalAlignment="Left" Margin="49,396,0,0" VerticalAlignment="Top" Height="58" Width="682"  FontFamily="Comic Sans MS" Click="ravno_Click">
+        <Button  x:Name="ravno" Background="#498C51" FontWeight="Medium" Content="Очистить ответ" FontSize="36" HorizontalAlignment="Left" Margin="49,396,0,0" VerticalAlignment="Top" Height="58" Width="682"  FontFamily="Comic Sans MS" Click="ravno_Click">
             <Button.Resources>
                 <Style TargetType="{x:Type Border}">
                     <Setter Property="CornerRadius" Value="15"/>
