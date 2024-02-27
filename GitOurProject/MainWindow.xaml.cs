@@ -64,17 +64,6 @@ namespace GitOurProject
                 return;
             }
             
-            // Парсинг чисел из текстовых полей
-            if (!double.TryParse(log.Text, out num1) || !double.TryParse(log2.Text, out num2))
-            {
-                ShowError("Введите корректные числа!");
-                return;
-            }
-            
-            double result = 0;
-
-
-            // Парсинг чисел из текстовых полей
             if (double.TryParse(log.Text, out double num1) && double.TryParse(log2.Text, out double num2))
             {
 
