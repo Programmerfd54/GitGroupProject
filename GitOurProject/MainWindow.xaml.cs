@@ -30,16 +30,38 @@ namespace GitOurProject
             log2.TextChanged += TextBox_TextChanged;
         }
 
-       
+
+        private void ravno_Click(object sender, RoutedEventArgs e)
+        {
+            // Вывод результата
+            Itog.Text = result.ToString();
+        }
 
         private void Equals_Click(object sender, RoutedEventArgs e)
         {
             PerformOperation();
         }
         double result = 0;
+
+        private void Operation_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            currentOperation = button.Content.ToString(); // Обновляем текущую операцию
+        }
         private void PerformOperation()
         {
-            
+            if (string.IsNullOrWhiteSpace(currentOperation))
+            {
+                MessageBox.Show("Выберите операцию!");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(log.Text) || string.IsNullOrWhiteSpace(log2.Text))
+            {
+                MessageBox.Show("Введите числа!");
+                return;
+            }
+
         }
 
         // Обработчик события изменения текста в текстовых полях
