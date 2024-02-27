@@ -48,7 +48,17 @@ namespace GitOurProject
             PerformOperation(); // Выполняем операцию при изменении текста
         }
 
-      
+        private void TextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            foreach (char c in e.Text)
+            {
+                if (!char.IsDigit(c) && c != '.')
+                {
+                    e.Handled = true; // Отклоняем ввод, если символ не цифра и не точка
+                    break;
+                }
+            }
+        }
 
 
     }
