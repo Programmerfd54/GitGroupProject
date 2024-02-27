@@ -20,11 +20,36 @@ namespace GitOurProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string currentOperation = ""; // Текущая операция
+
         public MainWindow()
         {
             InitializeComponent();
+            // Добавляем обработчики событий изменения текста в текстовых полях
+            log.TextChanged += TextBox_TextChanged;
+            log2.TextChanged += TextBox_TextChanged;
         }
 
-        
+       
+
+        private void Equals_Click(object sender, RoutedEventArgs e)
+        {
+            PerformOperation();
+        }
+        double result = 0;
+        private void PerformOperation()
+        {
+            
+        }
+
+        // Обработчик события изменения текста в текстовых полях
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            PerformOperation(); // Выполняем операцию при изменении текста
+        }
+
+      
+
+
     }
 }
